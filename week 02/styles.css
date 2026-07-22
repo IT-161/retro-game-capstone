@@ -1,0 +1,236 @@
+@layer reset, tokens, base, components;
+
+/* =========================
+   RESET
+========================= */
+
+@layer reset {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+/* =========================
+   DESIGN TOKENS
+========================= */
+
+@layer tokens {
+    :root {
+        color-scheme: light;
+
+        /* Light Mode Colors */
+        --color-primary: oklch(55% 0.18 275);
+        --color-secondary: oklch(70% 0.17 155);
+        --color-background: oklch(97% 0.02 275);
+        --color-surface: oklch(92% 0.035 275);
+        --color-text: oklch(22% 0.03 275);
+        --color-muted-text: oklch(42% 0.04 275);
+        --color-border: oklch(80% 0.04 275);
+
+        /* Typography */
+        --size-base: 1rem;
+
+        --size-heading-md: clamp(
+            1.375rem,
+            1.155rem + 0.94vw,
+            2rem
+        );
+
+        --size-heading-lg: clamp(
+            1.75rem,
+            1.31rem + 1.88vw,
+            3rem
+        );
+
+        /* Spacing */
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+        --space-2xl: 5rem;
+    }
+
+    :root[data-theme="dark"] {
+        color-scheme: dark;
+
+        --color-primary: oklch(75% 0.15 275);
+        --color-secondary: oklch(78% 0.14 155);
+        --color-background: oklch(16% 0.025 275);
+        --color-surface: oklch(23% 0.035 275);
+        --color-text: oklch(94% 0.02 275);
+        --color-muted-text: oklch(75% 0.035 275);
+        --color-border: oklch(38% 0.045 275);
+    }
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+
+@layer base {
+    body {
+        min-height: 100vh;
+        padding: var(--space-lg);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: var(--size-base);
+        line-height: 1.6;
+        color: var(--color-text);
+        background-color: var(--color-background);
+
+        transition:
+            background-color 0.25s ease,
+            color 0.25s ease;
+    }
+
+    main {
+        width: min(100%, 70rem);
+        margin-inline: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+        margin-block-start: 0;
+    }
+
+    h1 {
+        font-size: var(--size-heading-lg);
+        line-height: 1.1;
+    }
+
+    h2 {
+        margin-top: var(--space-xl);
+        font-size: var(--size-heading-md);
+    }
+
+    a {
+        color: var(--color-primary);
+    }
+
+    code {
+        color: var(--color-muted-text);
+        font-family: Consolas, monospace;
+    }
+}
+
+/* =========================
+   COMPONENTS
+========================= */
+
+@layer components {
+
+    .theme-toggle {
+        display: inline-block;
+        margin: var(--space-md) 0 var(--space-lg);
+
+        padding: 0.75rem 1.25rem;
+
+        font: inherit;
+        font-weight: bold;
+
+        color: var(--color-background);
+        background: var(--color-primary);
+
+        border: none;
+        border-radius: 0.5rem;
+
+        cursor: pointer;
+
+        transition:
+            background-color 0.2s ease,
+            transform 0.15s ease;
+    }
+
+    .theme-toggle:hover {
+        background-color: var(--color-secondary);
+        transform: translateY(-2px);
+    }
+
+    .theme-toggle:active {
+        transform: translateY(0);
+    }
+
+    .token-grid {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+        gap: var(--space-md);
+    }
+
+    .token-card {
+        padding: var(--space-md);
+
+        background-color: var(--color-surface);
+
+        border: 1px solid var(--color-border);
+        border-radius: 0.75rem;
+
+        transition:
+            background-color 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .color-swatch {
+        height: 100px;
+
+        margin-bottom: var(--space-sm);
+
+        border: 1px solid var(--color-border);
+        border-radius: 0.5rem;
+    }
+
+    .primary-swatch {
+        background-color: var(--color-primary);
+    }
+
+    .secondary-swatch {
+        background-color: var(--color-secondary);
+    }
+
+    .background-swatch {
+        background-color: var(--color-background);
+    }
+
+    .text-swatch {
+        background-color: var(--color-text);
+    }
+
+    .spacing-example {
+        width: var(--example-size);
+        height: var(--example-size);
+
+        min-width: 0.25rem;
+        min-height: 0.25rem;
+
+        background-color: var(--color-primary);
+    }
+
+    .text-base {
+        font-size: var(--size-base);
+    }
+
+    .text-heading-md {
+        font-size: var(--size-heading-md);
+        line-height: 1.2;
+    }
+
+    .text-heading-lg {
+        font-size: var(--size-heading-lg);
+        line-height: 1.1;
+    }
+}

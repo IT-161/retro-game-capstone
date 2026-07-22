@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Week 02 Design System</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <a href="../index.html">← Return to Capstone Home</a>
+        <br>
+        <button class="theme-toggle" id="theme-toggle" type="button">
+    Switch to Dark Mode
+</button>
+
+        <header>
+            <p>Retro Game Catalog</p>
+            <h1>Week 02 Design System</h1>
+
+            <p>
+                This page displays the color, typography, and spacing
+                tokens that will be used throughout the capstone project.
+            </p>
+        </header>
+
+        <section>
+            <h2>Color Tokens</h2>
+
+            <div class="token-grid">
+                <article class="token-card">
+                    <div class="color-swatch primary-swatch"></div>
+                    <h3>Primary</h3>
+                    <code>--color-primary</code>
+                </article>
+
+                <article class="token-card">
+                    <div class="color-swatch secondary-swatch"></div>
+                    <h3>Secondary</h3>
+                    <code>--color-secondary</code>
+                </article>
+
+                <article class="token-card">
+                    <div class="color-swatch background-swatch"></div>
+                    <h3>Background</h3>
+                    <code>--color-background</code>
+                </article>
+
+                <article class="token-card">
+                    <div class="color-swatch text-swatch"></div>
+                    <h3>Text</h3>
+                    <code>--color-text</code>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>Typography Tokens</h2>
+
+            <div class="token-card">
+                <p class="text-base">
+                    Base text using --size-base
+                </p>
+
+                <p class="text-heading-md">
+                    Medium heading using --size-heading-md
+                </p>
+
+                <p class="text-heading-lg">
+                    Large heading using --size-heading-lg
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Spacing Tokens</h2>
+
+            <div class="token-grid">
+                <article class="token-card">
+                    <div
+                        class="spacing-example"
+                        style="--example-size: var(--space-xs);"
+                    ></div>
+                    <p>XS: 0.25rem</p>
+                </article>
+
+                <article class="token-card">
+                    <div
+                        class="spacing-example"
+                        style="--example-size: var(--space-sm);"
+                    ></div>
+                    <p>Small: 0.5rem</p>
+                </article>
+
+                <article class="token-card">
+                    <div
+                        class="spacing-example"
+                        style="--example-size: var(--space-md);"
+                    ></div>
+                    <p>Medium: 1rem</p>
+                </article>
+
+                <article class="token-card">
+                    <div
+                        class="spacing-example"
+                        style="--example-size: var(--space-lg);"
+                    ></div>
+                    <p>Large: 2rem</p>
+                </article>
+            </div>
+        </section>
+    </main>
+<script src="script.js"></script>
+</body>
+</html>
